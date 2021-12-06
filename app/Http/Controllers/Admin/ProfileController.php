@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProfifeController extends Controller
+class ProfileController extends Controller
 {
-    //
     public function add()
     {
         return view('admin.profile.create');
@@ -28,4 +27,4 @@ class ProfifeController extends Controller
         return redirect('admin/profile/edit');
     }
 }
-
+ 
