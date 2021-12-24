@@ -14,11 +14,11 @@ class CreateprofilesTable extends Migration
      // title と body と image_path を追記
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->string('name'); //名前
             $table->string('gender'); // 性別
             $table->string('hobby');  // 趣味
-            $table->string('introduction')->nullable();  // 自己紹介
+            $table->string('introduction');  // 自己紹介
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateprofilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('profiles');
     }
 }
