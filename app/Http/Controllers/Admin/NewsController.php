@@ -88,3 +88,4 @@ public function update(Request $request)
 
         return redirect('admin/news/');
     }
+}

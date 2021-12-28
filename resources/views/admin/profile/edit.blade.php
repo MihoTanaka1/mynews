@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.profile')
 @section('title', 'プロフィールの編集')
 
 @section('content')
@@ -22,9 +22,13 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="gender" rows="20">{{ $profile_form->gender }}</textarea>
-                        </div>
+                        @if($profile_form->gender == 'male' )
+                             <label><input type="radio" class="radio" name="gender" value="male" checked>男性</label>
+                             <label><input type="radio" class="radio" name="gender" value="female">女性</label>
+                        @else
+                             <label><input type="radio" class="radio" name="gender" value="male">男性</label>
+                             <label><input type="radio" class="radio" name="gender" value="female" checked>女性</label>
+                        @endif
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
@@ -35,7 +39,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="introduction" value="{{ $profile_form->introduction }}">
+                            <textarea class="form-control" name="introduction" rows="4">{{ $profile_form->introduction }}</textarea
                         </div>
                     </div>
 
