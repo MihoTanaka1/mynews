@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\History;
+
+use Carbon\Carbon;
 
 // 以下を追記することでNews Modelが扱えるようになる
 use App\Profile;
@@ -66,7 +69,23 @@ class ProfileController extends Controller
 
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
+      
+        $record = new Record();
+        $record->news_id = $profile->id;
+        $record->edited_at = Carbon::now();
+        $record->save();
 
       return redirect('admin/profile');
-  }
+}
+  
+    public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $profile = Profile::find($request->id);
+      // 削除する
+      $profile->delete();
+      return redirect('admin/profile/');
+  }  
+
+
 }
