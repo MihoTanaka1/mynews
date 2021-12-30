@@ -12,10 +12,4 @@ class Record extends Model
         'profile_id' => 'required',
         'edited_at' => 'required',
     );
-
-    public function records()
-    {
-        return $this->hasMany('App\Record');
-
-    }
 }
