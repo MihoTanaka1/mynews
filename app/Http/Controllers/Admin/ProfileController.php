@@ -70,7 +70,7 @@ class ProfileController extends Controller
       $profile->fill($profile_form)->save();
       
         $record = new Record();
-        $record->news_id = $profile->id;
+        $record->profile_id = $profile->id;
         $record->edited_at = Carbon::now();
         $record->save();
 
