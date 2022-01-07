@@ -1,6 +1,7 @@
 @extends('layouts.front')
 @section('title', 'トップページ')
 @section('content')
+<p>トップページ</p>
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))
